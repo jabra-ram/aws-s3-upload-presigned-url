@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3>All files</h3>
+        <% if (locals.files) { %>
+            <% files.forEach(file=> { %>
+                <p>
+                    <a href="/file/<%= file.Key %>"><%= file.Key %></a>
+                </p>
+            <% }) %>
+        <% } %>
+    </div>
+    <br>
+    <form action="/file" method="post" enctype="multipart/form-data">
+        <input type="file" id="file" name="file">
+        <button type="submit">upload</button>
+    </form>
+</body>
+
+</html>
